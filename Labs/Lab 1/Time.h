@@ -1,6 +1,8 @@
 #ifndef TIME_H
 #define TIME_H
 
+using namespace std;
+
 class Time{
     private:
     int hour;
@@ -37,7 +39,14 @@ class Time{
     //Prints the time
     void print_time();
 
+    //Operator overload for outstream
+    friend ostream& operator <<(ostream& outs, const Time& time);
 
+    //Operator overload for addition
+    friend Time operator +(const Time& time1, const Time& time2);
+
+    //Operator overload for addition
+    friend Time operator +(const Time& time1, const int& int1);
 
 
 
