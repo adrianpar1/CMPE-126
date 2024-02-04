@@ -19,25 +19,25 @@ class Time{
     Time (int hour, int minute);
 
     //Setter for the hour variable
-    void set_hour(int hour);
+    void setHour(int hour);
 
     //Setter for the minute variable
-    void set_minute(int minute);
+    void setMinute(int minute);
 
     //Setter for both the hour and minute variable
-    void set_time(int hour, int minute);
+    void setTime(int hour, int minute);
 
     //Getter for the hour variable
-    int get_hour();
+    int getHour();
 
     //Getter for the minute variable
-    int get_minute();
+    int getMinute();
 
     //Getter for the time
-    Time get_time();
+    Time getTime();
 
     //Prints the time
-    void print_time();
+    void printTime();
 
     //Operator overload for outstream
     friend ostream& operator <<(ostream& outs, const Time& time);
@@ -47,9 +47,6 @@ class Time{
 
     //Operator overload for addition
     friend Time operator +(const Time& time1, const int& int1);
-
-
-
 
 };
 

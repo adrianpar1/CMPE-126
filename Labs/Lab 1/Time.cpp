@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Time.h"
 
+
 using namespace std;
 
 Time::Time() : hour(0),minute(0){}
@@ -9,6 +10,8 @@ Time::Time(int hour) : minute(0){
     if (hour>=0 && hour<=23){
         this->hour=hour;
     }
+
+    else cout<<"Invalid time set";
 }
 
 Time::Time(int hour, int minute){
@@ -21,19 +24,19 @@ Time::Time(int hour, int minute){
     }
 }
 
-void Time::set_hour(int hour){
+void Time::setHour(int hour){
     if (hour>=0 && hour <=23){
         this->hour=hour;
     }
 }
 
-void Time::set_minute(int minute){
+void Time::setMinute(int minute){
     if (minute>=0 && minute<=59){
         this->minute=minute;
     }
 }
 
-void Time::set_time(int hour, int minute){
+void Time::setTime(int hour, int minute){
     if (hour>=0 && hour <=23){
         this->hour=hour;
     }
@@ -44,20 +47,20 @@ void Time::set_time(int hour, int minute){
 }
 
 
-int Time::get_hour(){
+int Time::getHour(){
     return hour;
 }
 
-int Time::get_minute(){
+int Time::getMinute(){
     return minute;
 }
 
-Time Time::get_time(){
+Time Time::getTime(){
     Time time1(hour,minute);
     return time1;
 }
 
-void print_time(){
+void printTime(){
     
 }
 
@@ -142,7 +145,6 @@ Time operator +(const Time& time1, const int& int1){
         else{
         temp.minute = time1.minute + int1;
         }
-    
 
     return temp;
 }

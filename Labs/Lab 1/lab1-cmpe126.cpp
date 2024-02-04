@@ -1,6 +1,9 @@
 #include <iostream>
+#include <string>
 #include "Time.h"
 #include "Time.cpp"
+#include "Flight.h"
+#include "Flight.cpp"
 
 using namespace std;
 
@@ -17,9 +20,18 @@ t1 = t3+minute;
 cout<<"new t1="<<t1<<endl;
 
 
-
-
+t1.setTime(23,59);
+cout<<t1;
+string src = "SFO";
+string dest = "LAX";
+Flight f1(src,dest); //Note that there should be no default value of src and dest
+f1.setDepartureTime(13, 45);//Sets the departureTime field to 13:45
+cout << f1; //Outputs flight information in a suitable format 
+Time t(6, 30);
+f1.setDepartureTime(t); //Sets the departureTime field to values from t
+cout << f1; 
 
 
     return 0;
+    
 }
