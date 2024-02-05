@@ -8,6 +8,13 @@ class Time{
     int hour;
     int minute;
 
+    //Helper function that checks if input is valid
+    bool isHourValid(int hour);
+
+    //Helper function that checks if minute is valid
+    bool isMinuteValid(int minute);
+
+
     public:
     //The default constructor for the Time class, sets hour and minute to 0
     Time();
@@ -35,9 +42,6 @@ class Time{
 
     //Getter for the time
     Time getTime();
-
-    //Prints the time
-    void printTime();
 
     //Operator overload for outstream
     friend ostream& operator <<(ostream& outs, const Time& time);

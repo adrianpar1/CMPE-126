@@ -7,42 +7,55 @@ using namespace std;
 Time::Time() : hour(0),minute(0){}
 
 Time::Time(int hour) : minute(0){
-    if (hour>=0 && hour<=23){
+    if (isHourValid(hour)){
         this->hour=hour;
     }
-
-    else cout<<"Invalid time set";
+    else{
+        setHour(0);
+        cout<<"Hour is invalid, time set to 00:00\n";
+    }
 }
 
 Time::Time(int hour, int minute){
-    if (hour>=0 && hour <=23){
+    if (isHourValid(hour) && isMinuteValid(minute)){
         this->hour=hour;
-    }
-
-    if (minute>=0 && minute<=59){
         this->minute=minute;
+    }
+    else{
+        setHour(0);
+        setMinute(0);
+        cout<<"Time is invalid, time set to 00:00\n";
     }
 }
 
 void Time::setHour(int hour){
-    if (hour>=0 && hour <=23){
+    if (isHourValid(hour)){
         this->hour=hour;
     }
+    else{
+        setHour(0);
+        cout<<"Hour is invalid, hour set to 0\n";
+    }  
 }
 
 void Time::setMinute(int minute){
-    if (minute>=0 && minute<=59){
+    if (isMinuteValid(minute)){
         this->minute=minute;
+    }
+    else{
+        this->minute=0;
+        cout<<"Minute is invalid, minute set to 0\n";
     }
 }
 
 void Time::setTime(int hour, int minute){
-    if (hour>=0 && hour <=23){
+    if (isHourValid(hour)){
         this->hour=hour;
     }
-
-    if (minute>=0 && minute<=59){
-        this->minute=minute;
+    else{
+        this->hour=0;
+        this->minute=0;
+        cout<<"Time is invalid, time set to 00:00\n";
     }
 }
 
@@ -60,9 +73,6 @@ Time Time::getTime(){
     return time1;
 }
 
-void printTime(){
-    
-}
 
 ostream& operator <<(ostream& outs, const Time& time){
     if (time.hour<10){
@@ -116,6 +126,7 @@ Time operator +(const Time& time1, const Time& time2){
         }
 
         else{
+        temp.hour= time1.hour + time2.hour;
         temp.minute = time1.minute + time2.minute;
         }
 
@@ -147,4 +158,22 @@ Time operator +(const Time& time1, const int& int1){
         }
 
     return temp;
+}
+
+bool Time::isHourValid(int hour){
+    if (hour>=0 && hour<=23){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool Time::isMinuteValid(int minute){
+    if (minute>=0 && minute<=59){
+        return true;
+    }
+        else{
+        return false;
+    }
 }
