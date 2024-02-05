@@ -50,6 +50,9 @@ class Time{
     friend Time operator +(const Time& time1, const Time& time2);
 
     //Operator overload for addition
+    friend Time operator +(const int& int1, const Time& time1);
+
+    //Operator overload for addition
     friend Time operator +(const Time& time1, const int& int1);
 
 };

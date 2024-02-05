@@ -1,0 +1,11 @@
+Task 3: Thoughts and Documentation
+Task 1:
+1. I needed to use 3 constructors, the default constructor with no arguments that will set the hour and minute fields to zero, a second constructor with one argument to take in the hour field, and a final constructor taking in both the hour and minute fields as arguments. One constructor is not enough as lines 2 and 3 require constructors with both one and two arguments
+2. Both lines 5 and 6 print out Time objects, however line 5 is a Time object that uses the default constructor and will always be 12:00, while line 6 prints two time objects, one taking in one argument, and the other taking in two arguments. Line 6 should have no special implementation different from line 5, both lines could be supported by implementing a "<<" operator overload for Time objects
+3. The assignment operator overload was not needed to support any of the operations in my code, as I was able to execute my code using only setters and overloading the "+" and "<<" operators
+4. I needed to create two operator overloads for addition, one with the integer as the first argument and the Time object as the second argument, and one with the Time object as the first argument and the integer as the second argument. This is to ensure that both t3+minute and minute+t3 would add properly, otherwise minute+t3 would treat this as normal integer addition and only add the integer with the hour portion of the time object.
+
+Task 2:
+1. I needed to use three constructors, the default constructor which gives default values for the source,destination, and departure time, a constructor that takes in two string arguments for the source and destination fields, and one final constructor that takes in three arguments for the flight source, destination, and departure time fields. One constructor is not enough as line 3 requires a Flight object that takes in two arguments for the constructor.
+2. The assignment operator was not needed to support line 7 as the setter and getter functions in the Time class were more than enough to properly create a working setDepartureTime function for the Flight class.
+3. No input validation is needed for line 3 as the constructor is taking in two strings that are already defined in lines 1 and 2. Lines 4 and 7 need input validation for the time, which is already being done in the Time class.

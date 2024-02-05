@@ -4,15 +4,15 @@
 
 using namespace std;
 
-Time::Time() : hour(0),minute(0){}
+Time::Time() : hour(12),minute(0){}
 
 Time::Time(int hour) : minute(0){
     if (isHourValid(hour)){
         this->hour=hour;
     }
     else{
-        setHour(0);
-        cout<<"Hour is invalid, time set to 00:00\n";
+        setHour(12);
+        cout<<"Hour is invalid, time set to 12:00\n";
     }
 }
 
@@ -22,9 +22,9 @@ Time::Time(int hour, int minute){
         this->minute=minute;
     }
     else{
-        setHour(0);
+        setHour(12);
         setMinute(0);
-        cout<<"Time is invalid, time set to 00:00\n";
+        cout<<"Time is invalid, time set to 12:00\n";
     }
 }
 
@@ -33,8 +33,8 @@ void Time::setHour(int hour){
         this->hour=hour;
     }
     else{
-        setHour(0);
-        cout<<"Hour is invalid, hour set to 0\n";
+        setHour(12);
+        cout<<"Hour is invalid, hour set to 12\n";
     }  
 }
 
@@ -92,6 +92,7 @@ ostream& operator <<(ostream& outs, const Time& time){
     }
       return outs;
  }
+ 
 
 Time operator +(const Time& time1, const Time& time2){
     Time temp;
@@ -134,6 +135,33 @@ Time operator +(const Time& time1, const Time& time2){
 }
 
 Time operator +(const Time& time1, const int& int1){
+    Time temp;
+
+    temp.hour=time1.hour;
+
+    if (time1.minute+int1 > 59){
+            if ((time1.hour+1)<24){
+            temp.hour++;
+            }
+            if ((time1.hour+1)==24){
+            temp.hour=0;
+            }
+            if (time1.minute+int1 == 60){
+            temp.minute=0;
+            }
+            else{
+            temp.minute=((time1.minute+int1)-60);
+            }
+        }
+
+        else{
+        temp.minute = time1.minute + int1;
+        }
+
+    return temp;
+}
+
+Time operator +(const int& int1, const Time& time1){
     Time temp;
 
     temp.hour=time1.hour;
