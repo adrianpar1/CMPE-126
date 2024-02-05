@@ -40,3 +40,22 @@ cout << f1;
     return 0;
     
 }
+
+/*
+---------TASK 1---------
+t1=12:00
+t2=02:00
+t3=03:10
+t2+t3=05:10
+new t1=03:20
+minute+t3:03:20
+
+
+---------TASK 2---------
+t1=23:20
+Flight source:SFO
+Flight destination:LAX
+Departure time:13:45
+Flight source:SFO
+Flight destination:LAX
+Departure time:06:45*/
