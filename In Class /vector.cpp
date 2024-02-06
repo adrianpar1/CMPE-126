@@ -9,9 +9,9 @@ using namespace std;
 
     }
 
-    Vector::Vector(double x, double y){
-        this->x=x;
-        this->y=y;
+    Vector::Vector(double x, double y) : x(x), y(y){
+       /* this->x=x;
+        this->y=y;*/
     }
 
     Vector::Vector(double x, double y, double magnitude, double direction){
@@ -23,10 +23,12 @@ using namespace std;
 
     void Vector::setx(double x){
         this->x=x;
+        update();
     }
 
     void Vector::sety(double y){
         this->y=y;
+        update();
     }
 
     double Vector::calcmagnitude(){
@@ -61,7 +63,7 @@ using namespace std;
     }
 
    void Vector::update(){
-
+    magnitude=calcmagnitude();
     }
 
 

@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
 
-    Vector vector(3,4);
+    Vector vector(2,4);
 
     cout<<"Vector's x is: "<<vector.x<<endl;
     cout<<"Vector's y is: "<<vector.y<<endl;
