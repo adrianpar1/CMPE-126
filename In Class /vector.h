@@ -5,9 +5,6 @@ class Vector{
 
     public:
 
-    double x;
-    double y;
-
     //Default constructor
     Vector();
 
@@ -22,6 +19,12 @@ class Vector{
 
     //Function that sets y
     void sety(double y);
+
+    //Function that gets x
+    double getx();
+
+    //Function that gets y
+    double gety();
 
     //Function that calculates the magnitude
     double calcmagnitude();
@@ -39,7 +42,9 @@ class Vector{
     double calcy(double direction, double magnitude);
 
 
-    private:
+    protected:
+    double x;
+    double y;
     double direction;
     double magnitude;
 

@@ -30,6 +30,12 @@ using namespace std;
         this->y=y;
         update();
     }
+    double Vector::getx(){
+        return x;
+    }
+    double Vector::gety(){
+        return y;
+    }
 
     double Vector::calcmagnitude(){
         magnitude = sqrt(pow(x,2)+pow(y,2));
