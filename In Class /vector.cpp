@@ -10,8 +10,6 @@ using namespace std;
     }
 
     Vector::Vector(double x, double y) : x(x), y(y){
-       /* this->x=x;
-        this->y=y;*/
     }
 
     Vector::Vector(double x, double y, double magnitude, double direction){
@@ -37,20 +35,20 @@ using namespace std;
         return y;
     }
 
-    double Vector::calcmagnitude(){
+    double Vector::getmagnitude(){
         magnitude = sqrt(pow(x,2)+pow(y,2));
         return magnitude;
     }
 
-    double Vector::calcdirection(){
+    double Vector::getdirection(){
         direction = atan(y/x);
         return direction;
     }
 
     Vector Vector::normalize(){
         Vector vector1(x,y);
-        x=x/calcmagnitude();
-        y=y/calcmagnitude();
+        x=x/getmagnitude();
+        y=y/getmagnitude();
 
         vector1.x=x;
         vector1.y=y;
@@ -68,8 +66,16 @@ using namespace std;
         return y;
     }
 
+    Vector operator+(const Vector& v1,const Vector& v2){
+        Vector v3;
+        v3.x=v1.x+v2.x;
+        v3.y=v1.y+v2.y;
+        v3.update();
+        return v3;
+    }
+
    void Vector::update(){
-    magnitude=calcmagnitude();
+    magnitude=getmagnitude();
     }
 
 

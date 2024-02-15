@@ -2,6 +2,12 @@
 #define VECTOR_H
 
 class Vector{
+    
+     //Overloading the + operator
+    friend Vector operator+(const Vector& v1,const Vector& v2);
+
+    //Overloading the outstream operator
+
 
     public:
 
@@ -27,10 +33,10 @@ class Vector{
     double gety();
 
     //Function that calculates the magnitude
-    double calcmagnitude();
+    double getmagnitude();
 
     //Function that calculates the direction
-    double calcdirection();
+    double getdirection();
 
     //Function that normalizes
     Vector normalize();

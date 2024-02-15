@@ -1,0 +1,27 @@
+REFERENCES : 1) https://stackoverflow.com/questions/997946/how-to-get-current-time-and-date-in-c
+	     2) https://stackoverflow.com/questions/725098/leap-year-calculation
+
+
+
+Discussion for Task 1:
+1. For the date class I needed to use 2 constructors, a default constructor, and a condtructor that takes three ints, the month, the day, and the year as arguments. While the DateOfBirth class needs three constructors, the default constructor, a constructor that takes three ints, the month, the day, and the year as arguments, and a constructor that takes a date class-type date as an argument. One constructor is not enough as lines 1 and 2 use different constructors for the date class, and lines 3 and 4 use different constructors for the DateOfBirth class.
+
+2. Line 3 constructs a DateOfBirth object using int month, int day, and int year as arguments, while line 4 constructs a DateOfBirth object that takes in a date class-type date as an argument.
+
+3. Input validation for the two classes are being done with multiple helper functions, isDayValid, isMonthValid, isYearValid, isLeapYear, and isDateValid. isDayValid, isMonthValid, and isYearValid functions check whether the value passed through is "generally" acceptable within the parameter's range, such as positive values for the day and month and within 31 days, 12 months, and a year up to 2024. These helper functions, along with isLeapYear are then passed through another helper function, isDateValid, which will check if the day value is valid given the month, as there are different amounts of days per month, with an extremely special case for February. isDateValid is called everytime a constructor is called to ensure that the values passed through the constructor is valid, setting the date to 1/1/1970 if any parameter is invalid. Because DateOfBirth is an inherited class, the input validation is run when the base class is constructed, with the only difference being that there is a re-defined function isYearValid which only accepts years between 1970 to 2024.
+
+4. A good way to implement getAge would be to make use of the ctime class, which may take a bit to learn the correct functions, but would otherwise be a good way of checking today's date through using the computer system's own local time. Another good way of implementing getAge without hard coding today's date could simply be by using user input so the user could enter today's date without having to use the ctime class and having to learn how to use the pre-defined functions
+
+
+
+Discussion for Task 2:
+1. Two constructors were needed, a default constructor, and a constructor with a string first name, string last name, and DateOfBirth class-type date of birth as arguments. One constructor is not enough as there needs to be a default constructor, and line 4 uses a constructor that requires arguments, which would be a constructor other than the default constructor
+
+2. I interpreted the fare_discount as a multiplier to reduce the cost of the passenger's fare. I initially thought it had to be applied to the ticket class as I assumed discounts to be applicable to sales of tickets rather than the actual passenger type, but after given context as to how discounts are applied based on the type of passenger, it makes sense for the passenger class to hold the discount fare field as it can easily be altered based on the age of the passenger throgh the DateOfBirth that is passed through as an argument, therefore it is necessary to have the fare_discount field in the passenger class
+
+
+
+Discussion for Task 3:
+1. Two constructors were needed, a default constructor, and a constructor with two arguments, a passenger class-type passenger and a flight class-type flight passed as arguments. One constructor was not enough as there always a need for a default constructor, and line 1 requires a constructor that takes in two arguments, a passenger p1, and a flight f1.
+
+2. The role of class time was needed to properly display attributes of the flight class, as the flight class needed a departure time. The date and date of birth classes were required to properly display attribute of the passenger class, as passengers needed a date of birth. The date class was also required for the flight class as the flight class required a date of departure. Both of the classes Passenger and Flight were needed to properly display the attributes of a ticket, as a ticket required a ticket holder (passenger) and a reason to be used (a flight), therefore it was necessary for all of these classes and inheritances as each class built upon each other to create a system for ticket identification and ticket usage, as well as properly structuring the code in a way that these classes are useable and applicable in more ways than just one. Being able to program with object-oriented design is important for larger-scale projects, especially for projects that are team-based as code can very easily get confusing and convoluted, so having different classes that define what they do, with proper inheritances and structure so that the code is easily readable and easy to follow. Trying to program code to support task 3 without the use of clases would be far messier and have lots of code that is not reusable, and having to code more functionality in the future would be far harder, as it would be like starting from scratch instead of using pre-existing code to just build upon with classes and objects.

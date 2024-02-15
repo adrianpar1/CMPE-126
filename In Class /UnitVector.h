@@ -9,7 +9,7 @@ class UnitVector : public Vector{
     public:
     //default constructor
     UnitVector();
-
+    
 };
 
 

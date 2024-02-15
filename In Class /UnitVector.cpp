@@ -1,10 +1,10 @@
-#include "UnitVector.h"
-#include "Vector.h"
+#include "unitvector.h"
+#include "vector.h"
 
 using namespace std;
 
-UnitVector::UnitVector(){
-    x=1;
-    magnitude=1;
+UnitVector::UnitVector() : Vector(){
+   // this->x=x/magnitude;
+   // this->y=y/magnitude;
 }
 
