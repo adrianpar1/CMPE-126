@@ -6,17 +6,14 @@
 using namespace std;
 
     Vector::Vector() : x(0),y(0){
-
+        update();
     }
 
     Vector::Vector(double x, double y) : x(x), y(y){
+        update();
     }
 
-    Vector::Vector(double x, double y, double magnitude, double direction){
-        this->x=x;
-        this->y=y;
-        this->magnitude=magnitude;
-        this->direction=direction;
+    Vector::Vector(double x, double y, double magnitude, double direction) : x(x), y(y), magnitude(magnitude), direction(direction){
     }
 
     void Vector::setx(double x){
@@ -45,15 +42,12 @@ using namespace std;
         return direction;
     }
 
-    Vector Vector::normalize(){
-        Vector vector1(x,y);
+    void Vector::normalize(){
+
         x=x/getmagnitude();
         y=y/getmagnitude();
 
-        vector1.x=x;
-        vector1.y=y;
-
-        return vector1;
+        update();
     }
 
     double Vector::calcx(double direction, double magnitude){
@@ -74,8 +68,23 @@ using namespace std;
         return v3;
     }
 
+    
+    Vector operator-(const Vector& v1,const Vector& v2){
+        Vector v3;
+        v3.x=v1.x-v2.x;
+        v3.y=v1.y-v2.y;
+        v3.update();
+        return v3;
+    }
+
+    ostream& operator <<(ostream& outs,const Vector& v){
+        outs<<"x:"<<v.x<<endl<<"y:"<<v.y<<endl<<"Magnitude:"<<v.magnitude<<endl<<"Direction:"<<v.direction<<endl;
+        return outs;
+    }
+
    void Vector::update(){
     magnitude=getmagnitude();
+    direction=getdirection();
     }
 
 

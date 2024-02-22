@@ -4,7 +4,14 @@
 using namespace std;
 
 UnitVector::UnitVector() : Vector(){
-   // this->x=x/magnitude;
-   // this->y=y/magnitude;
+   magnitude=1;
+}
+
+UnitVector::UnitVector(double x, double y) : Vector(x,y){
+   normalize();
+}
+
+UnitVector::UnitVector(double x, double y, double magnitude, double direction) : Vector(x,y,magnitude,direction){
+   normalize();
 }
 

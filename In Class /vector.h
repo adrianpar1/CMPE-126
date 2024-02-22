@@ -1,13 +1,9 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include <iostream>
+using namespace std;
 
 class Vector{
-    
-     //Overloading the + operator
-    friend Vector operator+(const Vector& v1,const Vector& v2);
-
-    //Overloading the outstream operator
-
 
     public:
 
@@ -39,13 +35,23 @@ class Vector{
     double getdirection();
 
     //Function that normalizes
-    Vector normalize();
+    void normalize();
 
     //Function that calculates x
     double calcx(double direction, double magnitude);
 
     //Function that calculates y
     double calcy(double direction, double magnitude);
+
+
+    //Overloading the + operator
+    friend Vector operator+(const Vector& v1,const Vector& v2);
+
+    //Overloading the - operator
+    friend Vector operator-(const Vector& v1,const Vector& v2);
+
+    //Overloading the outstream operator
+    friend ostream& operator <<(ostream& outs,const Vector& v);
 
 
     protected:
