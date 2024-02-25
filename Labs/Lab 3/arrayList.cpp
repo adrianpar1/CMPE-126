@@ -91,6 +91,21 @@
     void arrayList::insertEnd(int num){
         size++;
         checkSize();
+
+        int* temp = new int[size];
+        for (int i=0; i<size; i++){
+            temp[i]=array[i];
+        }
+        
+        delete[] array;
+
+        array=new int[size];
+        
+        for (int i=0; i<size; i++){
+            array[i]=temp[i];
+        }
+        
+        delete[] temp;
         array[size-1]=num;
     }
 
@@ -112,11 +127,13 @@
         for(int i=0; i < size; i++){
             array[i]=temp[i];
         }
-
         delete[] temp;
     }
 
     int arrayList::retreiveAt(int index){
+        if (index>size){
+            throw out_of_range("INDEX OUT OF BOUNDS");     
+        } 
         return array[index];
     }
 
@@ -128,7 +145,6 @@
         size=0;
         delete[] array;
         array= new int[0];
-        
     }
 
     arrayList& arrayList::operator=(arrayList& array1){
@@ -136,28 +152,10 @@
         size=array1.size;
         maxSize=array1.maxSize;
         return *this;
-
-
     }
 
    void arrayList::checkSize(){
     if (size>maxSize){
         maxSize=maxSize*2;
-
-    int* temp = new int[size];
-    for (int i=0; i<size; i++){
-        temp[i]=array[i];
-    }
-    
-    delete[] array;
-
-    array=new int[size];
-    
-    for (int i=0; i<size; i++){
-        array[i]=temp[i];
-    }
-    
-    delete[] temp;
-
     }
    }

@@ -1,5 +1,15 @@
 #ifndef ARRAY_H_
 #define ARRAY_H_
 
+class MyClass{
 
-#endif ARRAY_H
+public:
+    int a;
+    int b;
+    int c;
+
+
+
+};
+
+#endif //ARRAY_H_

@@ -29,3 +29,46 @@ int main(){
 
     return 0;
 }
+
+/*
+Vector 1:
+x:2
+y:4
+Magnitude:4.47214
+Direction:1.10715
+
+
+Vector 1+2:
+x:5
+y:7
+Magnitude:8.60233
+Direction:0.950547
+
+
+Vector 1-2:
+x:-1
+y:1
+Magnitude:1.41421
+Direction:-0.785398
+
+
+Vector 1 normalized:
+x:0.447214
+y:0.993808
+Magnitude:1.0898
+Direction:1.14794
+
+
+Unit vector:
+x:0
+y:0
+Magnitude:1
+Direction:nan
+
+
+Unit vector 2:
+x:0.447214
+y:0.993808
+Magnitude:1.0898
+Direction:1.14794
+*/
