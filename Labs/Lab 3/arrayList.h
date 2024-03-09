@@ -48,7 +48,7 @@ public:
     void removeAt(int);
 
     // Retrieves object at position
-    T retreiveAt(int);
+    T retrieveAt(int);
 
     // Replaces object at position with 2nd parameter
     void replaceAt(int, T);
@@ -57,9 +57,11 @@ public:
     void clearList();
 
     // Operator overload for =
-    arrayList &operator=(arrayList &array1);
+    arrayList &operator=(const arrayList &array1);
 
+    // Helper function that makes sure the size of the array is within the maxsize, if not, it will increase the size of the array.
     void checkSize();
+
 
 private:
     T *array;
@@ -133,6 +135,10 @@ void arrayList<T>::print()
 template <class T>
 bool arrayList<T>::isItemAtEqual(int index, T type)
 {
+    if (index>size-1 || index<0){
+        throw out_of_range("INDEX OUT OF BOUNDS");
+    }
+
     if (array[index] == type)
     {
         return true;
@@ -144,10 +150,14 @@ bool arrayList<T>::isItemAtEqual(int index, T type)
 template <class T>
 void arrayList<T>::insertAt(int index, T type)
 {
-    size++;
+    if (index>size-1 || index<0){
+        throw out_of_range("OUT OF BOUNDS");
+    }
+
+    ++size;
     checkSize();
 
-    T *temp = new T[size];
+    T *temp = new T[maxSize];
 
     for (int i = 0; i < size; i++)
     {
@@ -169,46 +179,38 @@ void arrayList<T>::insertAt(int index, T type)
     }
 
     delete[] array;
-    array = new T[size];
+    array = temp;
 
-    for (int i = 0; i < size; i++)
-    {
-        array[i] = temp[i];
-    }
-
-    delete[] temp;
 }
 
 template <class T>
 void arrayList<T>::insertEnd(T type)
 {
-    size++;
+    ++size;
     checkSize();
 
-    T *temp = new T[size];
+    T *temp = new T[maxSize];
     for (int i = 0; i < size; i++)
     {
         temp[i] = array[i];
     }
 
     delete[] array;
+    array=temp;
 
-    array = new T[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        array[i] = temp[i];
-    }
-
-    delete[] temp;
     array[size - 1] = type;
+    
 }
 
 template <class T>
 void arrayList<T>::removeAt(int index)
 {
+    if (index>size-1 || index<0){
+        throw out_of_range("INDEX OUT OF BOUNDS");
+    }
+
     size--;
-    T *temp = new T[size];
+    T *temp = new T[maxSize];
 
     for (int i = 0; i < size; i++)
     {
@@ -222,19 +224,13 @@ void arrayList<T>::removeAt(int index)
         }
     }
     delete[] array;
-    array = new T[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        array[i] = temp[i];
-    }
-    delete[] temp;
+    array=temp;
 }
 
 template <class T>
-T arrayList<T>::retreiveAt(int index)
+T arrayList<T>::retrieveAt(int index)
 {
-    if (index > size)
+    if (index > size-1 || index<0)
     {
         throw out_of_range("INDEX OUT OF BOUNDS");
     }
@@ -244,6 +240,10 @@ T arrayList<T>::retreiveAt(int index)
 template <class T>
 void arrayList<T>::replaceAt(int index, T type)
 {
+    if (index>size-1|| index<0){
+        throw out_of_range("OUT OF RANGE");
+    }
+    
     array[index] = type;
 }
 
@@ -256,11 +256,14 @@ void arrayList<T>::clearList()
 }
 
 template <class T>
-arrayList<T> &arrayList<T>::operator=(arrayList<T> &array1)
+arrayList<T> &arrayList<T>::operator=(const arrayList<T> &array1)
 {
-    array = array1.array;
-    size = array1.size;
-    maxSize = array1.maxSize;
+    size=array1.size;
+    maxSize=array1.maxSize;
+    
+    for (int i=0; i<size; i++){
+        array[i]=array1.array[i];
+    }
     return *this;
 }
 
@@ -272,5 +275,7 @@ void arrayList<T>::checkSize()
         maxSize = maxSize * 2;
     }
 }
+
+
 
 #endif // ARRAYLIST_H_
