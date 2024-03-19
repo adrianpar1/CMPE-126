@@ -1,0 +1,61 @@
+ A: Array
+
+1.O(1), Constant For 
+-Retrieving an index position
+-listSize and maxListSize
+-Replace
+-printTopTwo
+
+B:
+-listSize and maxListSize
+-insertHead
+-printTopTwo
+
+
+
+
+
+2. O(1), Constant = 2x
+-Retrieving an index position with a cout statement
+-listSize and maxListSize with a cout statement
+-clearList
+-isItemEqual with a cout statement
+-printTopFour
+
+B:
+-printTopFour
+-removeFirst and removeLast
+
+
+
+
+3. A: LinkedList, proportional to parameter O(N)
+-retrieveAt
+-isItemEqual
+-removeAt
+-insertEnd
+-print
+
+B:
+-print(entire list)
+-
+
+
+
+
+
+4. 1/2 the number of operations
+-No tail?!?!?
+
+
+
+
+
+
+5. Formulate the number of operations as a function of input parameters and size of the list
+-F(n) = 1
+-F(n) = 1
+-F(n) = n
+-F(n) = n/2
+
+

@@ -10,6 +10,7 @@ class LinkedList{
 private:
     Node * head;
     Node * tail;
+    int size;
 
 public:
     LinkedList(){
@@ -35,6 +36,10 @@ public:
     }
 
     void insertEnd(int n){
+        //1. Create node newNode
+        //2. tail->next = newNode
+        //3. tail = newNode
+        //4. if was empty, set head
         Node *n3= new Node;
         n3->next = NULL; 
 
@@ -56,6 +61,48 @@ public:
         head = p;
     }
 
+
+    void insertFront(int n){
+        Node *newNode = new Node;
+        newNode->next=head;
+        head=newNode;
+
+        if(tail==nullptr){
+            tail=head;
+        }
+    }
+
+    void removeFront(int n){
+        Node* temp = head;
+        head=head->next;
+        delete temp;
+
+        if(head==nullptr){
+            tail=head;
+        }
+    }
+
+    void removeEnd(){
+
+    }
+
+    template <class type>
+    type retreiveAt(int pos){
+       int index=0;
+       Node *temp;
+       temp=head;
+       
+
+       while (temp){
+        if (index==position){
+            return temp;//or return temp->data;
+        }
+        
+        else temp=temp->next;
+        ++index;
+       }
+
+    }
 
 
 };

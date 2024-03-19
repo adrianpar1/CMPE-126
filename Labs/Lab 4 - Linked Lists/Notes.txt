@@ -1,0 +1,3 @@
+https://cplusplus.com/forum/beginner/210712/
+
+Only the assignment operator need be overloaded for the class if wanted to equate two linkedLists. This is because a linkedlist cannot add/concatenate the same way that arrays can, as each link is not as easily accessibly as an array element is, and there is no need to overload the outstream operator due to a pre-defined print function for our linkedlists.
