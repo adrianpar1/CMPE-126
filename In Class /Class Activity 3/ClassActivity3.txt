@@ -1,0 +1,48 @@
+
+Base case for Fibonacci: if number is 1 or 2 return 1, as it the formula requires n-1,n-2 at minimum. 
+Recursive formulation: return Fibonacci(n-1)+Fibonacci(n-2) to call the function again
+
+Base case for decimal to binary: if number is 1 or 0 return itself
+Recursive formulation: use division and modulus by 2 as it is in base 2, it will recursively divide by 2 until the number reaches a base case
+
+-I did both the base case and formulas as I did not have a partner
+-Fibonacci is easier to figure out as you can look at the formula and both cases are essentially given
+-I have the code for both below, it was easier to do dectobinary after doing it on paper first, as I would have ended up trying to brute force it if I only attempted to code it
+
+
+#include <iostream>
+
+int Fibonacci(int n);
+
+std::string decimalToBinary(int n);
+
+int main(){
+
+std::cout<<decimalToBinary(15);
+
+
+    return 0;
+}
+
+int Fibonacci(int n){
+    if (n==1 || n==2){
+        return 1;
+    }
+
+   return Fibonacci(n-1)+Fibonacci(n-2);
+}
+
+
+
+std::string decimalToBinary(int n){
+    if (n==0){
+        return "0";
+    }
+
+    if (n==1){
+        return "1";
+    }
+
+    return (decimalToBinary(n/2)+std::to_string(n%2));
+
+}

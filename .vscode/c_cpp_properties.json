@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "Labs/Lab 3 - arrayList/"
             ],
             "defines": [],
             "macFrameworkPath": [

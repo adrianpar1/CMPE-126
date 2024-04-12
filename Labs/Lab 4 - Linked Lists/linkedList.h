@@ -73,6 +73,25 @@ public:
     //Overload the assignment operator
     linkedList &operator=(const linkedList &list1);
 
+
+        //LAB 5
+    //Extend the arrayList with the elements in the arrrayList passed in the first parameter
+    void extend(const linkedList &);
+
+    //Returns the minimum element in the list
+    Type min() const;
+
+    //Returns the maximum element in the list
+    Type max() const;
+
+    //Counts the number of elemeents in the list matching the element passed in the first parameter
+    int count(const Type&);
+
+    //LAB 6
+    //Finds the min in the list recursively
+    Type getMinRecursive();
+
+
 };
 
 template <class Type>
@@ -310,6 +329,89 @@ linkedList<Type> &linkedList<Type>::operator=(const linkedList<Type> &list1){
 }
 
 
+
+//LAB 5
+template <class Type>
+void linkedList<Type>::extend(const linkedList & list){
+    
+    Node<Type> *p = list.head;
+
+    while(p){
+        insertEnd(p->data);
+        p=p->next;
+    }
+
+    delete p;
+}
+
+
+template <class Type>
+Type linkedList<Type>::min() const{
+    
+    Type min=head->data;
+
+    Node<Type> *p = head;
+
+    while(p){
+        if (p->data<min){
+            min=p->data;
+        }
+        p=p->next;
+    }
+    delete p;
+    return min;
+}
+
+template <class Type>
+Type linkedList<Type>::max() const{
+    
+    Type max=head->data;
+
+    Node<Type> *p = head;
+
+    while(p){
+        if (p->data>max){
+            max=p->data;
+        }
+        p=p->next;
+    }
+    delete p;
+    return max;
+}
+
+template <class Type>
+int linkedList<Type>::count(const Type& element){
+        
+    int count=0;
+    Node<Type> *p = head;
+
+    while(p){
+        if (p->data==element){
+            count++;
+        }
+        p=p->next;
+    }
+    delete p;
+    return count;
+
+}
+
+template <class Type>
+Type linkedList<Type>::getMinRecursive(){
+    static Node<Type> * p = head;
+    static Type min = p->data;
+    
+    if (p==nullptr)
+    return min;
+
+    if(p->data<min){
+        min=p->data;
+    }
+
+    p=p->next;
+
+    return getMinRecursive();
+}
 
 
 

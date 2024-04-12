@@ -1,0 +1,24 @@
+If base case (num = 0,1,2), return 1, else return P(num-2)+P(num-3). 
+
+
+In padovan with n = 7
+In padovan with n = 5
+In padovan with n = 3
+In padovan with n = 1
+Returning 1 with n = 1
+In padovan with n = 0
+Returning 1 with n = 0
+Returning 2 with n = 3
+In padovan with n = 2
+Returning 1 with n = 2
+Returning 3 with n = 5
+In padovan with n = 4
+In padovan with n = 2
+Returning 1 with n = 2
+In padovan with n = 1
+Returning 1 with n = 1
+Returning 2 with n = 4
+Returning 5 with n = 7
+
+[HP]
+Padovan is probably one of the better recursive functions over iteration because it would be much easier to read and understand for anyone else reading the code or trying to understand the padovan sequence. Iteration solutions may be more memory efficient as the recursion case would likely call on itself far more than the iterative case, but it would be difficult to read and understand if you do not know the padovan sequence already.

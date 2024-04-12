@@ -62,6 +62,23 @@ public:
     // Helper function that makes sure the size of the array is within the maxsize, if not, it will increase the size of the array.
     void checkSize();
 
+    //LAB 5
+    //Extend the arrayList with the elements in the arrrayList passed in the first parameter
+    void extend(const arrayList &);
+
+    //Returns the minimum element in the list
+    T min() const;
+
+    //Returns the maximum element in the list
+    T max() const;
+
+    //Counts the number of elemeents in the list matching the element passed in the first parameter
+    int count(const T&);
+
+    //LAB 6
+    //Finds the min in the list recursively
+    T getMinRecursive();
+
 
 private:
     T *array;
@@ -275,6 +292,112 @@ void arrayList<T>::checkSize()
         maxSize = maxSize * 2;
     }
 }
+
+
+//LAB 5
+template <class T>
+void arrayList<T>::extend(const arrayList &array2){
+    
+    int originalsize=size;
+    size = size + array2.size;
+    
+    while(size>maxSize){
+        maxSize*=2;
+    }
+
+    T *temp = new T[maxSize];
+
+    for(int i=0; i<size; i++){
+        if (i<originalsize){
+            temp[i]=array[i];
+        }
+        else{
+            temp[i]=array2.array[i-originalsize];
+        }
+    }
+
+
+    delete[] array;
+    array = temp;
+
+}
+
+
+template <class T>
+T arrayList<T>::min() const{
+    int indexofmin=0;
+
+    for(int i=0; i<size; i++){
+        if (array[i]<array[indexofmin]){
+            indexofmin=i;
+        }
+    }
+
+    return array[indexofmin];
+}
+
+template <class T>
+T arrayList<T>::max() const{
+    int indexofmax=0;
+
+    for(int i=0; i<size; i++){
+        if (array[i]>array[indexofmax]){
+            indexofmax=i;
+        }
+    }
+
+    return array[indexofmax];
+}
+
+template <class T>
+int arrayList<T>::count(const T& element){
+
+    int counter=0;
+
+    for(int i=0; i<size; i++){
+        if (array[i]==element){
+            counter++;
+        }
+    }
+    return counter;
+}
+/*emplate <class T>
+T arrayList<T>::getMinRecursive(){
+
+
+    if (size==1){
+        return array[0];
+    }
+
+    T min = getMinRecursive();
+
+    if (array[size-1]<min){
+        return array[size-1];
+    }
+    else return min;
+
+}
+*/
+
+template <class T>
+T arrayList<T>::getMinRecursive() {
+    static int index = 0;
+    static T min = array[0];
+    
+    if (index == size) {
+        return min;
+    }
+    
+    if (array[index] < min) {
+        min = array[index];
+    }
+    
+    index++;
+    
+    return getMinRecursive();
+}
+
+
 
 
 

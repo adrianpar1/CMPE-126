@@ -53,7 +53,6 @@ public:
     //You may need to check that the position is smaller than the size of the list
     Type retreiveAt(int);
 
-
     //Empties the list
     void clearList();
 
@@ -79,6 +78,8 @@ sortedLinkedList<Type>::~sortedLinkedList(){
         delete p;
         p = p2->next;
     }
+
+    std::cout<<"Deleted list";
 }
 
 template <class Type>
@@ -272,8 +273,6 @@ sortedLinkedList<Type> &sortedLinkedList<Type>::operator=(const sortedLinkedList
     return *this;
 
 }
-
-
 
 
 

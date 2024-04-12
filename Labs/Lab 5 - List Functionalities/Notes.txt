@@ -1,0 +1,11 @@
+1. Big-O for arraylist
+-Extend = O(n), depends on iteration of the two arrays at least once, 2n -> n after removing constants
+-min = O(n), depends on iteration of the array, n
+-max = O(n), depends on iteration of the array, n
+-count = O(n), depends on iteration of the array, n
+
+2. Big-O for linkedList
+-Extend = O(n), depends on iteration of the two linkedlists at least once, 2n -> n after removing constants
+-min = O(n), depends on iteration of the list, n
+-max = O(n), depends on iteration of the list, n
+-count = O(n), depends on iteration of the list, n
